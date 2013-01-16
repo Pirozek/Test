@@ -15,11 +15,6 @@ class CalendarPresenter extends BasePresenter {
         $this->calendarModel = $calendarModel;
     }
 
-    public function actionDefault()
-    {
-        $this->redirect('Calendar:ZobrazOrdinaci',1);
-    }
-
     public function actionUserEvents($start, $end, $ordinace)
     {
        	$res = $this->calendarModel->getEventsCalendar($start,$end,$ordinace)->setType('start',Dibi::TEXT)->setType('end',Dibi::TEXT);
@@ -28,6 +23,7 @@ class CalendarPresenter extends BasePresenter {
 
     	$response = new \Nette\Application\Responses\JsonResponse($res->fetchAll());
 		$this->sendResponse($response);
+		//asdasd
     }
 
     public function actionZobrazOrdinaci($id)
